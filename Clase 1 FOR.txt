@@ -1,0 +1,22 @@
+/**
+ * Esta clase hace referncia como funciona la variable For en la logica del bucle. 
+ * @author gerardo morales
+ */
+public class For {
+
+    /**
+     * Ejemplo que muestre los números del 1 al 100 utilizando la instrucción de For
+     * @param args
+     */
+    public static void main(String[] args) {
+        
+        System.out.println ( "numeros de 1 al 100");//imprime el ejemplo en pantalla
+        int i;//variable asignada con el valor de i indicada por for que es 1
+        for(i=1; i<101; i++)//bucle de for asignando el valor limite de imprecion a 100  
+         {
+       System.out.println(i);//la siguiente imprime con saltos de linea de forma acendente de 1 a 100
+  }
+ }
+}
+
+
