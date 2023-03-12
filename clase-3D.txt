@@ -1,0 +1,22 @@
+/**
+ *Ejercicio del Array vector metodo String, length. 
+ * @author gerardo morales
+ */
+public class JavaApplication6 {
+
+    /**
+     * Acontinuacion veremos como asignar a cada pocicion del vector un productos
+     * Genere un array, mostrando productos de una tienda deportiva con 
+     * sus respectivos precios.
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+       String productos[]={"Botines", "Pelota Futboll","raqueta","Palo de Jockey","Balon de Rugby"};//vector productos
+       double precios[]={25999.99,5999.99,24999.99,15999.99,10099.99};// vector precios 
+       System.out.println("Lista de Productos y sus precios");//imprime en pantalla la lista
+       for (int i=0;i<productos.length;i++){//bucle con metodo length
+       System.out.println("Articulo " + productos[i]+ " Precio: $"+ precios[i]);// imprime en pantalla lista detalles
+   }
+  }
+ }

@@ -1,0 +1,21 @@
+/**
+ *Ejercicio del Array vector dinamico con metodo Length
+ * @author gerardo morales
+ */
+public class JavaApplication6 {
+
+    /**
+     * Acontinuacion veremos como asignar a cada pocicion del vector
+     * el valor aumentado en 5
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+        int numeros[] = new int[15];//variable asignado nombre al vector numeros
+
+        for(int i=0; i<numeros.length; i++){//usando el metodo length veremos como se comporta su bucle. 
+            numeros [i]=i+1;//indicamos la pocicion del vector a imprimir
+        System.out.println(numeros[i]+5);//imprime en pantalla el vector con las 15 pociciones aumentando su valor en 5. 
+        }
+    }
+}

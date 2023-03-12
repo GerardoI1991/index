@@ -1,0 +1,21 @@
+/**
+ *Ejercicio donde veremos el Array con metodo Length
+ * @author gerardo morales
+ */
+public class Array {
+
+    /**
+     * Acontinucion generaremos un array de números (1 al 15)
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+        int[] numeros = new int[15];//variable numeros segmentada en 15 vectores dinamico. 
+
+        for(int i=0; i<numeros.length; i++){//bucle de for indiacando el limite de imprescion a 15 
+           numeros [i]=i+1;// condicion de imprecion sumando le 1 para que aparesca en pantalla ahorrandonos un bucle.        
+            System.out.println(numeros[i]);//imprime en pantalla la variable numeros con su array asiganda.
+        }
+    }
+
+}

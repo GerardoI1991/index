@@ -1,0 +1,19 @@
+/**
+ *Ejercicio del Array vector 
+ * @author gerardo morales
+ */
+public class JavaApplication6 {
+
+    /**
+     * Acontinuacion veremos como asignar a cada pocicion del vector un valor
+     * Genere un array de 10 números, y al numero en la posición 6, dividir por 3.
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    
+    int numeros[] = new int [] {1,2,3,4,5,6,70,8,9,10};// vector segmentado en 10 resultados 
+        //la pocicion 6 es la indicada con numeros = 70 por que se cuenta apartir del 0 
+            System.out.println(numeros[6]/3);// imprime en pantalla el valor de 23 resultado de la division de 70/3  
+       }
+    }
+   

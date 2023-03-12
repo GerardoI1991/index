@@ -1,0 +1,23 @@
+/**
+ *Ejercicio donde veremos el metodo Array
+ * @author gerardo morales
+ */
+public class Array {
+
+    /**
+     * Acontinucion generaremos un array con materias escolares
+     * Genere un array con 3 cursos y luego mostrar el promedio de
+     * notas de tres cursos.
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        
+         String cursos []={"Matemática:", "Quimica:","Georafía:"};//vector indicando materias 
+	 int notas []={5,10,7};//vector de notas siguiendo su orden
+	 	System.out.println("CURSOS, NOTAS y PROMEDIO ");//imprime en pantallaed detalle
+	 int promedio =(notas[0]+notas[1]+notas[2])/3;//variable promedio indicando la suma y la de division de vector
+         for (int i=0;i<cursos.length;i++){//bucle de for metodo length indicado su limite
+	        System.out.println(cursos[i] + " "+notas[i]);  }//imprime en pantalla los cursos y las notas
+                System.out.println("Su Promedio es : " +promedio);//imprime en pantalla la variable promedio
+    }
+}
