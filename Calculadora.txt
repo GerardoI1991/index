@@ -1,0 +1,99 @@
+package Trabajos;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+	public class Calculadora{
+	 
+		public static void main(String args[]){
+	    Scanner in = new Scanner(System.in); 
+	    String nombre = "";        
+	    double num_uno= 0; 
+	    double num_dos = 0; 
+	    double resultado = 0;
+	    int parametro = 0;
+	    boolean continua;
+	    
+	   System.out.println("*****************************************");
+	   System.out.println("*BIENVENIDOS A LA CALCULADORA DE GERARDO*");
+	   System.out.println("*****************************************");
+	   System.out.println(""); 
+	   System.out.println("");
+	    
+	   
+	   
+	   System.out.println("¿Cual es Tu nombre?: ");
+	   nombre = in.nextLine();
+	   System.out.println("");
+
+	   
+	   do {
+	   
+	   do {
+           try {
+	   continua = false;
+	   System.out.println("");
+	   System.out.println("¿Cual es el primer numero para calcular?: ");
+	   num_uno = in.nextInt();
+	   System.out.println("");
+	   } catch (InputMismatchException ex) {
+       System.out.println("Debe ingresar obligatoriamente un número entero.");
+       in.next();
+       continua = true;}
+       } while (continua); 
+	   
+	   
+	   do {
+           try {
+	   continua = false;
+	   System.out.println("¿Cual es el segundo numero par calcular?: ");
+	   num_dos = in.nextInt();
+	   System.out.println("");
+	   } catch (InputMismatchException ex) {
+	   System.out.println("Debe ingresar obligatoriamente un número entero.");
+	   in.next(); 
+	   continua = true;}
+	   } while (continua);
+	   
+	   
+	  
+           try {
+	   continua = false;
+	   System.out.print("Si quieres SUMAR presionar 1, para RESTAR 2,");
+	   System.out.println("para MULTIPLICAR 3, para DIVIDIR 4, para SALIR 5. ");
+	   parametro = in.nextInt();
+	   System.out.println("");
+     
+	   
+	   
+	    switch (parametro){
+	        case 1:resultado = num_uno + num_dos;
+	            System.out.println(""+nombre.toUpperCase()+" el resultado de la suma es: " + resultado);
+	            System.out.println("");
+	            break;
+	        case 2:resultado = num_uno - num_dos;
+	            System.out.println(""+nombre.toUpperCase()+" el resultado de la resta es: " + resultado);
+	            System.out.println("");
+	            break; 
+	        case 3:resultado = num_uno * num_dos;
+	            System.out.println(""+nombre.toUpperCase()+" el resultado de la multiplicacion es: " + resultado);
+	            System.out.println("");
+	            break;
+	        case 4:resultado = num_uno / num_dos;
+	            System.out.println(""+nombre.toUpperCase()+" el resultado de la division es: " + resultado);
+	            System.out.println("");
+	            break; 
+	        default:System.out.println("*******************************************");
+	 	        System.out.println("*GRACIA POR USAR LA CALCULADORA DE GERARDO*");
+		        System.out.println("*******************************************");
+	             break;
+           }}catch (InputMismatchException ex) {
+	        System.out.println("Debe ingresar obligatoriamente un número entero.");
+	        in.next(); 
+	        continua = true;}
+	        } while (parametro!=5); 
+	     } 
+	    }
+	  
+	
+
