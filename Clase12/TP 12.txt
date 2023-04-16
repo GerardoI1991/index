@@ -1,0 +1,57 @@
+TP 12 - Persistencia
+Relacional – P2 
+
+
+1. Insertar un empleado nuevo en la nómina de trabajo. 
+
+primero se debe crear los departamentos para poder agregar Empledaos
+
+insert into departamento(DepNro,DepNom,DepPres) values ('1','Logistica','6000');
+insert into departamento(DepNro,DepNom,DepPres) values ('2','RRHH','2000');
+insert into departamento(DepNro,DepNom,DepPres) values ('3','Sistemas','7000');
+insert into departamento(DepNro,DepNom,DepPres) values ('4','Legal','4000');
+insert into departamento(DepNro,DepNom,DepPres) values ('5','Compras','6000');
+insert into departamento(DepNro,DepNom,DepPres) values ('6','Mantenimiento','9000');
+insert into departamento(DepNro,DepNom,DepPres) values ('8','Sistemas','3000');
+insert into departamento(DepNro,DepNom,DepPres) values ('9','Administracion','4000');
+insert into departamento(DepNro,DepNom,DepPres) values ('10','Ventas','1000');
+
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('001','Luis','Gonzalez','Argentina','1');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('002','Maria','Gomez','Brasil','2');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('003','Josefina','Suarez','EEUU','3');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('004','Lucia','Paez','Uruguay','4');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('005','Estefanis','Castro','Argentina','4');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('006','Daniel','Perez','Argentina','1');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('007','Lucas','Gonzalez','Colombia','5');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('008','Maria','Gomez','Brasil','8');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('009','Josefina','Suarez','Mexico','9');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('777','Lucia','Paez','Uruguay','10');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('987','Dante','Alvarez','Argentina','2');
+insert into empleados(EmpDni,EmpNom,EmpApe,EmpNac,EmpDep) values ('234','Daniel','Perez','Argentina','1');
+
+2. Modificar la nacionalidad de algún empleado.
+
+update empleados set EmpNac = 'Español' where EmpDni= 003;
+
+3. Eliminar un departamento.
+
+delete  from departamento where DepNro=6; (ver tema de integridad referencial antes de eliminar)
+
+no puedo eliminar una tabla que contenga informacion vinculada.
+
+4. Conocer los empleados que trabajan en el departamento de “logística” (puede ser cualquiera de los que agreguen).
+
+select * from empleados where EmpDep=1;
+
+5. Mostrar todos los departamentos ordenados alfabéticamente.
+
+select * from departamento
+order by DepNom asc;
+
+
+ALUMONO GERADO MORALES
+
+
+
+
+ 
