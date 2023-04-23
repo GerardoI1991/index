@@ -48,6 +48,15 @@ package conexion.clinica;
 	            		break;
 	            	case 6:
 	            		m.eliminarRegistoMedicos(); 
+	            		break;
+	            	case 7:
+	            		m.consultarTablaHistoriaClinica();  
+	            		break;
+	            	case 8:
+	            		m.agregarTablaHistoriaClinica();    
+	            		break;
+	            	case 9:
+	            		m.eliminarRegistoHistoriaClinica(); 
 	                case 0:
 	                    System.out.println("Cerrando Sistema");
 	                    m.desconectar();              
@@ -82,6 +91,9 @@ package conexion.clinica;
 	        System.out.println("4.MOSTRAR EL CONTENIDO DE LA TABLA MEDICOS");
 	        System.out.println("5.INSERTAR UN REGISTRO EN LA TABLA MEDICOS");  
 	        System.out.println("6.ELIMINAR UN REGISTRO EN LA TABLA MEDICOS");
+	        System.out.println("7.MOSTRAR EL CONTENIDO DE LA TABLA HISTORIA CLINICA");
+	        System.out.println("8.INSERTAR UN REGISTRO EN LA TABLA HISTORIA CLINICA");  
+	        System.out.println("9.ELIMINAR UN REGISTRO EN LA TABLA HISTORIA CLINICA");
 	        System.out.println("0.SALIR");
 	        System.out.println("\n Por favor, escoja una opción.");
 	        System.out.println("--------------------------------");
@@ -279,5 +291,87 @@ package conexion.clinica;
 	    	                  System.out.println("Error en el borrado del registro!!");
 	    	                }
 	    	              }
-	
+	            ///////////////////////HISTORIA CLINNICA//////////////////////
+	    	            private void consultarTablaHistoriaClinica() {
+	    		     	       
+	    	    	        ResultSet r = buscar("select HCNum,HCFec,HCPacDNI,HCMedMat,HCTrat from historiaclinica"); 
+	    	    	        try {
+	    	    	            System.out.println("REGISTROS DE LA TABLA HISTORIA CLINICA");
+	    	    	           
+	    	    	            while (r.next()) {
+	    	    	                
+	    	    	                System.out.println
+               (r.getInt("HCNum") + " | " + r.getString("HCFec") + " | " + r.getString("HCPacDNI")+ " | " + r.getString("HCMedMat")+ " | " + r.getString("HCTrat"));
+	    	    	            }
+	    	    	        } catch (SQLException ex) {
+	    	    	      
+	    	    	        } }  
+	    	    	        
+	    	    	    ResultSet buscar2(String sqlHC) {
+	    	    	        try {
+	    	    	            sentencia = conexion.createStatement(); 
+	    	    	           
+	    	    	            return sentencia.executeQuery(sqlHC); 
+	    	    	        } catch (SQLException ex) {
+	    	    	            Logger.getLogger(ClinicaDelSol.class.getName()).log(Level.SEVERE, null, ex);
+	    	    	        }
+	    	    	        return null;
+	    	    	        }
+	    	    	    
+	    	    	        private void agregarTablaHistoriaClinica() {
+	    	    	        	String usuario="root";
+	    	    	            String password="Vacano@1991";
+	    	    	            Scanner sc = new Scanner(System.in);
+	    	    	            
+	    	    	            System.out.println("Escriba el Numero de la Historia Clinica: ");
+	    	    	            int HCNum  = sc.nextInt(); 
+	    	    	            System.out.println("Ingrese la Fecha:  ");
+	    	    	            String HCFec = sc.next(); 
+	    	    	            System.out.println("Ingrese el DNI Del Paciente:  ");
+	    	    	            int HCPacDNI = sc.nextInt(); 
+	    	    	            System.out.println("Ingrese la Matricula del medico:  ");
+	    	    	            int HCMedMat = sc.nextInt(); 
+	    	    	            System.out.println("Ingrese el Tratamiento del Paciente:  ");
+	    	    	            String HCTrat = sc.next();
+	    	    	                    
+	    	    	            String sqlHC = "insert into historiaclinica (HCNum,HCFec,HCPacDNI,HCMedMat,HCTrat) values ('"+HCNum+"','"+HCFec+"','"+HCPacDNI+"','"+HCMedMat+"','"+HCTrat+"')";
+	    	    	            Connection con=null;
+	    	    	                try{
+	    	    	            
+	    	    	           con=DriverManager.getConnection("jdbc:mysql://localhost:3306/consultorioclinicadelsol", usuario, password);  
+	    	    	           Statement sentencia = con.createStatement();    
+	    	    	           int m = sentencia.executeUpdate(sqlHC); 
+	    	    	             if (m == 1)
+	    	    	                 System.out.println("Se realizo correctamente la insercion : "+sqlHC);
+	    	    	             else
+	    	    	                 System.out.println("fallo la insercion");
+	    	    	          con.close(); 
+	    	    	        }
+	    	    	        catch(Exception e)
+	    	    	        {
+	    	    	           e.printStackTrace();
+	    	    	        }
+	    	    	    }
+	    	    	            private void eliminarRegistoHistoriaClinica() {
+	    	    	            	String usuario="root";
+	    	    	                String password="Vacano@1991";
+	    	    	                Scanner sc = new Scanner(System.in);
+
+	    	    	                System.out.println("Escriba el Nº de Historia Clinica a eliminar:...");
+	    	    	                int HCNum  = sc.nextInt();
+	    	    	                
+	    	    	                String sqlm ="DELETE FROM historiaclinica WHERE HCNum = '"+HCNum+"'";
+	    	    	                Connection con=null;
+	    	    	                
+	    	    	                try {
+	    	    	                	    
+	    	    	                	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/consultorioclinicadelsol", usuario, password);  
+	    	    	                    Statement sentencia = conexion.createStatement();
+	    	    	                    sentencia.execute(sqlm);   
+	    	    	                    System.out.println("El registro se elimino!!");
+	    	    	                } catch (Exception e) {  
+	    	    	                  e.printStackTrace();
+	    	    	                  System.out.println("Error en el borrado del registro!!");
+	    	    	                }
+	    	    	              }
 	}
